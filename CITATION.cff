@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite them as below."
+title: "Multi-agent collaboration for mathematical reasoning on GSM8K"
+authors:
+  - family-names: "Ramirez Madriz"
+    given-names: "Diego Alberto"
+date-released: 2025-12-10
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/diegomadriz/multi-agent-math-reasoning"
+url: "https://www.diegoramirezmadriz.dev/projects/multi-agent-mathematical-reasoning"
+keywords: [large language models, multi-agent systems, GSM8K, test-time compute]

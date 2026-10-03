@@ -1,0 +1,3 @@
+# Keep GitHub's language bar about the code, not the 500 KB experiment notebook.
+*.ipynb linguist-documentation
+results/** linguist-generated
