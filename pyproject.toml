@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multiagent-math"
+dynamic = ["version"]
+description = "Single vs multi-agent (Proposer-Critic-Refiner, Proposers+Judge) LLM reasoning on GSM8K, with cost per correct answer"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Diego Ramirez Madriz" }]
+requires-python = ">=3.10"
+keywords = ["llm", "multi-agent", "gsm8k", "reasoning", "evaluation", "llama.cpp"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["pandas>=2.0", "numpy>=1.24", "matplotlib>=3.7", "pyarrow>=14"]
+
+[project.optional-dependencies]
+llama = ["llama-cpp-python>=0.3"]
+data = ["datasets>=2.18"]
+dev = ["pytest>=8", "ruff>=0.6", "nbformat>=5"]
+
+[project.urls]
+Repository = "https://github.com/diegomadriz/multi-agent-math-reasoning"
+"Project page" = "https://www.diegoramirezmadriz.dev/projects/multi-agent-mathematical-reasoning"
+
+[project.scripts]
+mam = "multiagent_math.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "multiagent_math.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+
+[tool.ruff.lint.per-file-ignores]
+# Prompts are verbatim from the experiment; wrapping them would change the prompts.
+"src/multiagent_math/prompts.py" = ["E501"]
